@@ -1,0 +1,21 @@
+.main-footer {
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    display: inline-block;
+}
+
+.social-icons img {
+    height: 28px;
+    /* Defina a altura desejada para os ícones */
+    width: auto;
+}

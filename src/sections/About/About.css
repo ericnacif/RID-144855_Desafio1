@@ -1,0 +1,67 @@
+.about-section {
+    padding-bottom: 100px;
+}
+
+/* Layout em 2 colunas: Título na esquerda, conteúdo na direita */
+.about-header-content {
+    display: flex;
+    gap: 100px;
+    /* Espaçamento entre o título e a biografia */
+    margin-bottom: 80px;
+}
+
+/* O título da seção já usa a classe .section-title global, então não precisa de mais estilos aqui */
+.about-header-content .section-title {
+    margin-bottom: 0;
+    /* Remove a margem padrão para este caso específico */
+    margin-top: 10px;
+    /* Alinhamento visual fino */
+    white-space: nowrap;
+    /* Impede que "Sobre mim" quebre a linha */
+}
+
+.about-bio {
+    max-width: 600px;
+}
+
+.about-bio h3 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.about-bio p {
+    color: var(--gray-color);
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.about-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    margin-right: 30px;
+    transition: color 0.3s ease;
+}
+
+.about-links a:hover {
+    color: var(--gray-color);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.experience-lists-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-top: 50px;
+    border-top: 1px solid var(--border-color);
+}
