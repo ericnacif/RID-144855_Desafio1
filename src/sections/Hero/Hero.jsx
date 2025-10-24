@@ -3,10 +3,9 @@ import { motion } from 'framer-motion';
 import './Hero.css';
 
 const Hero = () => {
-    const text = "front-end. web (developer)";
+    const text = "desenvolvedor full-stack";
     const letters = Array.from(text);
 
-    // Variantes para a animação do container e das letras
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: (i = 1) => ({
@@ -31,6 +30,7 @@ const Hero = () => {
     return (
         <section id="home" className="hero-section container">
             <motion.h1
+                className="hero-title"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"

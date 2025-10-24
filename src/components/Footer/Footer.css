@@ -6,7 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 35px;
+    gap: 60px;
+    /* AUMENTADO O ESPAÇAMENTO */
     margin-top: 20px;
 }
 
@@ -15,7 +16,11 @@
 }
 
 .social-icons img {
-    height: 28px;
-    /* Defina a altura desejada para os ícones */
+    height: 36px;
     width: auto;
+    transition: opacity 0.3s ease;
+}
+
+.social-icons a:hover img {
+    opacity: 0.7;
 }

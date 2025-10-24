@@ -7,16 +7,12 @@ import figmaIcon from '../../assets/icons/figma.svg';
 import linkedinIcon from '../../assets/icons/linkedin.svg';
 import instagramIcon from '../../assets/icons/instagram.svg';
 import githubIcon from '../../assets/icons/github.svg';
-import dribbbleIcon from '../../assets/icons/dribbble.svg';
-import youtubeIcon from '../../assets/icons/youtube.svg';
 
 const socialLinks = [
-    { href: "#", icon: figmaIcon, alt: "Figma" },
+    { href: "https://www.figma.com/@nacif_eric", icon: figmaIcon, alt: "Figma" },
     { href: "https://linkedin.com/in/eric-nacif", icon: linkedinIcon, alt: "LinkedIn" },
-    { href: "#", icon: instagramIcon, alt: "Instagram" },
+    { href: "https://www.instagram.com/nacif_/", icon: instagramIcon, alt: "Instagram" },
     { href: "https://github.com/ericnacif", icon: githubIcon, alt: "GitHub" },
-    { href: "#", icon: dribbbleIcon, alt: "Dribbble" },
-    { href: "#", icon: youtubeIcon, alt: "YouTube" },
 ];
 
 const Footer = () => {

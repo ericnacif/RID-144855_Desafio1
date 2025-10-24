@@ -5,34 +5,66 @@ import './About.css';
 import { FaPaintBrush, FaCode, FaReact, FaWordpress } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
+// Dados com base no currículo
 const personalInfo = {
     name: "Eric Nacif",
-    bio: `I'm more than one in love for Front-End. My experience with interface design turn me one extremely criterious with alignments, margins, colors and a lot other resorces in CSS. Today I work with projects in a whole world. Codifiding in my home office, in a quiet interior of São Paulo, Brazil.`,
+    bio: `Desenvolvedor Full-Stack com experiência em PHP,
+     Laravel e JavaScript na criação de sistemas web.
+      Com vivência prática no desenvolvimento de interfaces responsivas e APIs,
+       busco ativamente uma oportunidade para entregar soluções tecnológicas eficientes
+        e colaborar com equipes de alta performance.`,
     links: {
-        instagram: "https://instagram.com/seuperfil",
+        instagram: "https://instagram.com/nacif_",
         github: "https://github.com/ericnacif",
         email: "mailto:naciferic7@gmail.com"
     }
 };
+
 const skillsData = [
     { icon: <FaPaintBrush />, title: "Interface & Design", description: "Briefing, wireframe, UI, UX e branding." },
     { icon: <FaCode />, title: "HTML & CSS", description: "Responsive websites with fast loading." },
     { icon: <FaReact />, title: "React.js", description: "Build your system with modernjs." },
     { icon: <FaWordpress />, title: "WordPress", description: "Create your e-commerce and blog with PHP." }
 ];
+
 const experienceListsData = {
     hadExperiences: {
-        title: "I've had experiences with",
-        items: ["Firebase Database", "MySQL Database", "GIT, GitHub, Bitbucket", "Coding PHP", "Figma, Adobe XD, Sketch", "CSS Preprocessors", "Digital Marketing", "Coding Python (Django)"]
+        title: "Tenho experiência com:",
+        items: ["MySQL Database", "GIT, GitHub", "PHP", "Figma, Photoshop", "CSS3", "Laravel Framework", "JavaScript", "WordPress CMS"]
     },
     haveYearsExperience: {
-        title: "I have years of experience with",
-        items: ["Coding HTML5", "Coding CSS3", "Coding WordPress", "Coding JavaScript", "Using Elementor", "Using Adobe Package", "Creating Brand and Logo", "Creating User Interface"]
+        title: "Tenho anos de experiência com:",
+        items: ["HTML5", "CSS3", "WordPress", "JavaScript", "Elementor", "Pacote Adobe", "Criação de sites"]
     },
     workAndStudy: {
-        title: "I work and study about",
-        items: ["Coding React.js", "Coding CSS3", "Coding JavaScript", "Studying TypeScript", "Studying Node.js basics", "Studying API RESTful", "Studying User Experience"]
+        title: "Trabalho e estudo sobre:",
+        items: ["React.js", "Vue.js", "JavaScript", "TypeScript", "Node.js", "API RESTful", "User Experience"]
     }
+};
+
+
+// Variantes de animação para containers
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.15, // Anima os filhos em sequência
+        },
+    },
+};
+
+// Variantes de animação para itens filhos
+const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: 'spring',
+            stiffness: 100,
+        },
+    },
 };
 
 const About = () => {
@@ -41,11 +73,11 @@ const About = () => {
             <div className="about-header-content">
                 <h2 className="section-title">Sobre mim</h2>
                 <motion.div
+                    className="about-bio"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="about-bio"
+                    transition={{ duration: 0.6 }}
                 >
                     <h3>{personalInfo.name}</h3>
                     <p>{personalInfo.bio}</p>
@@ -56,46 +88,40 @@ const About = () => {
                     </div>
                 </motion.div>
             </div>
-            <div className="skills-grid">
+
+            <motion.div
+                className="skills-grid"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+            >
                 {skillsData.map((skill, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 0.5, delay: 0.1 * index }}
-                    >
+                    <motion.div key={index} variants={itemVariants}>
                         <SkillCard {...skill} />
                     </motion.div>
                 ))}
-            </div>
-            <div className="experience-lists-grid">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                >
+            </motion.div>
+
+            <motion.div
+                className="experience-lists-grid"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+            >
+                <motion.div variants={itemVariants}>
                     <ExperienceList {...experienceListsData.hadExperiences} />
                 </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.5, delay: 0.7 }}
-                >
+                <motion.div variants={itemVariants}>
                     <ExperienceList {...experienceListsData.haveYearsExperience} />
                 </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.5, delay: 0.8 }}
-                >
+                <motion.div variants={itemVariants}>
                     <ExperienceList {...experienceListsData.workAndStudy} />
                 </motion.div>
-            </div>
+            </motion.div>
         </section>
     );
 };
+
 export default About;

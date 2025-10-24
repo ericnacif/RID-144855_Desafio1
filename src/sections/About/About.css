@@ -1,32 +1,30 @@
 .about-section {
+    padding-top: 80px;
     padding-bottom: 100px;
 }
 
-/* Layout em 2 colunas: Título na esquerda, conteúdo na direita */
 .about-header-content {
     display: flex;
     gap: 100px;
-    /* Espaçamento entre o título e a biografia */
     margin-bottom: 80px;
+    align-items: flex-start;
 }
 
-/* O título da seção já usa a classe .section-title global, então não precisa de mais estilos aqui */
 .about-header-content .section-title {
     margin-bottom: 0;
-    /* Remove a margem padrão para este caso específico */
-    margin-top: 10px;
-    /* Alinhamento visual fino */
     white-space: nowrap;
-    /* Impede que "Sobre mim" quebre a linha */
+    flex-shrink: 0;
 }
 
 .about-bio {
-    max-width: 600px;
+    max-width: 761px;
+    padding-top: 150px;
+    /* AUMENTADO O ESPAÇO SUPERIOR */
 }
 
 .about-bio h3 {
-    font-size: 32px;
-    font-weight: 500;
+    font-size: 30px;
+    font-weight: 400;
     margin-bottom: 20px;
 }
 
@@ -34,16 +32,17 @@
     color: var(--gray-color);
     line-height: 1.8;
     margin-bottom: 30px;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 300;
 }
 
 .about-links a {
     color: var(--text-color);
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 14px;
-    letter-spacing: 0.1em;
-    margin-right: 30px;
+    text-transform: uppercase;
+    margin-right: 25px;
     transition: color 0.3s ease;
 }
 
@@ -64,4 +63,35 @@
     gap: 30px;
     padding-top: 50px;
     border-top: 1px solid var(--border-color);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .about-header-content {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .about-bio {
+        text-align: center;
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .experience-lists-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
 }

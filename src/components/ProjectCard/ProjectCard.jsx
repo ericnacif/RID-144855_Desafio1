@@ -1,21 +1,32 @@
-// src/components/ProjectCard/ProjectCard.jsx
 import React from 'react';
-import { motion } from 'framer-motion'; // 1. Importe o motion
+import { motion } from 'framer-motion';
 import './ProjectCard.css';
-import projectImage from '../../assets/project-placeholder.png';
+// A LINHA DE IMPORT DO "project-placeholder.png" FOI REMOVIDA DAQUI
 
-const ProjectCard = ({ title, description, tags }) => {
+const ProjectCard = ({ title, description, contribution, tags, image }) => {
     return (
-        // 2. Troque 'div' por 'motion.div' e adicione as propriedades de animação
         <motion.div
             className="project-card"
-            whileHover={{ y: -10, scale: 1.02 }} // y: -10 move 10px para cima
-            transition={{ type: "spring", stiffness: 300 }}
+            whileHover={{ y: -8, boxShadow: "0 10px 20px rgba(0,0,0,0.07)" }}
+            transition={{ type: 'spring', stiffness: 300 }}
         >
-            <img src={projectImage} alt={title} className="project-image" />
+            {/* A lógica '|| projectPlaceholder' foi removida daqui */}
+            <img src={image} alt={title} className="project-image" />
             <div className="project-info">
                 <h3>{title}</h3>
                 <p>{description}</p>
+
+                {contribution && contribution.length > 0 && (
+                    <>
+                        <h4>Minha Contribuição:</h4>
+                        <ul className="contribution-list">
+                            {contribution.map((item, index) => (
+                                <li key={index}>{item}</li>
+                            ))}
+                        </ul>
+                    </>
+                )}
+
                 <div className="project-tags">
                     {tags.map((tag, index) => (
                         <span key={index} className="tag">{tag}</span>

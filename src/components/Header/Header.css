@@ -1,18 +1,29 @@
 .main-header {
     position: fixed;
     top: 0;
-    left: 30px;
-    height: 100vh;
-    display: flex;
-    align-items: center;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
     z-index: 1000;
+    padding: 0 50px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    /* CENTRALIZADO */
+    align-items: center;
+    max-width: 1240px;
+    margin: 0 auto;
+    height: 80px;
 }
 
 .main-header nav {
     display: flex;
-    flex-direction: column;
-    writing-mode: vertical-rl;
-    gap: 30px;
+    gap: 50px;
+    /* Aumentado o espaçamento */
 }
 
 .main-header nav a {
@@ -20,9 +31,9 @@
     color: var(--gray-color);
     font-size: 14px;
     font-weight: 500;
-    transform: rotate(180deg);
-    /* Corrige a orientação do texto */
-    transition: color 0.3s;
+    text-transform: lowercase;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
 }
 
 .main-header nav a:hover {
